@@ -5,11 +5,8 @@ import com.lxj.entity.Item;
 import com.lxj.service.ItemService;
 import com.lxj.service.impl.ItemServiceImpl;
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 import org.myspring.core.annotation.Service;
-
-import static org.junit.Assert.*;
 
 public class BeanContainerTest {
 

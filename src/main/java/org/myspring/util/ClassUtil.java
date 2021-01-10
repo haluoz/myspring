@@ -5,6 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.io.File;
 import java.io.FileFilter;
+import java.io.IOException;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
@@ -141,5 +142,4 @@ public class ClassUtil {
     public static ClassLoader getClassLoader(){
        return Thread.currentThread().getContextClassLoader();
     }
-
 }

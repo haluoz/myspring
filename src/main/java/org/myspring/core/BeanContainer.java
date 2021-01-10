@@ -7,6 +7,7 @@ import org.myspring.core.annotation.Component;
 import org.myspring.core.annotation.Controller;
 import org.myspring.core.annotation.Repository;
 import org.myspring.core.annotation.Service;
+import org.myspring.core.aop.annotation.Aspect;
 import org.myspring.util.ClassUtil;
 
 import java.lang.annotation.Annotation;
@@ -32,7 +33,7 @@ public class BeanContainer {
 
 
     private static final List<Class<? extends Annotation>> BEAN_ANNOTATION
-            = Arrays.asList(Controller.class, Service.class, Repository.class, Component.class);
+            = Arrays.asList(Controller.class, Service.class, Repository.class, Component.class, Aspect.class);
     /**
      * 获取Bean容器实例
      * @return

@@ -6,6 +6,7 @@ import org.myspring.core.annotation.Repository;
  * @author lee
  */
 @Repository
-public class ItemDao {
-
+public interface ItemDao {
+    void printHello();
+    public void printHello1();
 }
