@@ -1,6 +1,10 @@
 package com.lxj.algorithm.bst;
 
+import com.lxj.algorithm.queue.ArrayQueue;
 import com.lxj.algorithm.stack.ArrayStack;
+
+import java.util.ArrayList;
+import java.util.Random;
 
 public class BinarySearchTree<E extends Comparable<E>> {
     private class Node{
@@ -132,6 +136,83 @@ public class BinarySearchTree<E extends Comparable<E>> {
         System.out.println(node.e);
     }
 
+    public void levelOrder(){
+        ArrayQueue<Node> queue = new ArrayQueue<>();
+        queue.enqueue(root);
+        while (!queue.isEmpty()){
+            Node cur = queue.dequeue();
+            System.out.println(cur.e);
+            if (cur.left != null){
+                queue.enqueue(cur.left);
+            }
+            if (cur.right != null){
+                queue.enqueue(cur.right);
+            }
+        }
+    }
+
+    public E removeMin(){
+        E ret = minimum();
+        root = removeMin(root);
+        return ret;
+    }
+
+    private Node removeMin(Node node) {
+        if (node.left == null){
+            Node rightNode = node.right;
+            node.right = null;
+            size--;
+            return rightNode;
+        }
+        node.left = removeMin(node.left);
+        return node;
+    }
+
+    public E removeMax(){
+        E ret = maximum();
+        root = removeMax(root);
+        return ret;
+    }
+
+    private Node removeMax(Node node) {
+        if (node.right == null){
+            Node leftNode = node.left;
+            node.left = null;
+            size--;
+            return leftNode;
+        }
+        node.right = removeMax(node.right);
+        return node;
+    }
+
+    public E minimum(){
+        if (size ==0){
+            throw new IllegalArgumentException("BST is empty");
+        }
+        return minimum(root).e;
+    }
+
+    private Node minimum(Node node) {
+        if (node.left == null){
+            return node;
+        }
+        return minimum(node.left);
+    }
+
+    public E maximum(){
+        if (size ==0){
+            throw new IllegalArgumentException("BST is empty");
+        }
+        return maximum(root).e;
+    }
+
+    private Node maximum(Node node) {
+        if (node.right == null){
+            return node;
+        }
+        return minimum(node.right);
+    }
+
     public int size(){
         return this.size;
     }
@@ -142,17 +223,68 @@ public class BinarySearchTree<E extends Comparable<E>> {
 
     public static void main(String[] args) {
         BinarySearchTree<Integer> tree = new BinarySearchTree<>();
-        int [] nums = {5,3,6,8,4,2};
-        for (int num:nums) {
-            tree.addRecursion(num);
+//        int [] nums = {5,3,6,8,4,2};
+//        for (int num:nums) {
+//            tree.addRecursion(num);
+//        }
+//        tree.preOrder();
+//        System.out.println();
+//        tree.preOrderRecursion();
+//        System.out.println();
+//        tree.inOrder();
+//        System.out.println();
+//        tree.postOrder();
+        Random random = new Random();
+        for (int i = 0; i < 1000; i++) {
+            tree.addRecursion(random.nextInt(10000));
         }
-        tree.preOrder();
-        System.out.println();
-        tree.preOrderRecursion();
-        System.out.println();
-        tree.inOrder();
-        System.out.println();
-        tree.postOrder();
+        ArrayList<Integer> arrayList = new ArrayList<>();
+        while (!tree.isEmpty()){
+            arrayList.add(tree.removeMin());
+        }
+        System.out.println(arrayList);
+        for (int i = 1; i < arrayList.size(); i++) {
+            if (arrayList.get(i-1) > arrayList.get(i)){
+                throw new IllegalArgumentException("ERROR");
+            }
+        }
+        System.out.println("remove min success");
+    }
+
+    public void remove(E e){
+        root = remove(root, e);
+    }
+
+    private Node remove(Node node, E e) {
+        if (node == null){
+            return null;
+        }
+        if (e.compareTo(node.e) < 0){
+            node.left = remove(node.left, e);
+            return node;
+        }else if (e.compareTo(node.e) > 0){
+            node.right = remove(node.right, e);
+            return node;
+        }else { // e == node.e
+            if (node.left == null){
+                Node rightNode = node.right;
+                node.right = null;
+                size--;
+                return rightNode;
+            }
+            if (node.right == null){
+                Node leftNode = node.left;
+                node.left = null;
+                size--;
+                return leftNode;
+            }
+            // 找到比待删除的节点大的最小节点，用这个节点代替删除节点位置
+            Node successor = minimum(node.right);
+            successor.right = removeMin(node.right);
+            successor.left = node.left;
+            node.left = node.right = null;
+        }
+        return null;
     }
 
     @Override
