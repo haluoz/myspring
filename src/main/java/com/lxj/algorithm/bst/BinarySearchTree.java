@@ -5,6 +5,7 @@ import com.lxj.algorithm.stack.ArrayStack;
 
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.Stack;
 
 public class BinarySearchTree<E extends Comparable<E>> {
     private class Node{
@@ -59,6 +60,10 @@ public class BinarySearchTree<E extends Comparable<E>> {
             node.right = addRecursion(node.right, e);
         }
         return node;
+    }
+
+    public Node getRoot(){
+        return this.root;
     }
 
     public boolean contains(E e){
@@ -221,7 +226,43 @@ public class BinarySearchTree<E extends Comparable<E>> {
         return size == 0;
     }
 
+    public int maxDepth(Node root) {
+        return calDepth(root, 0);
+    }
+
+    public int calDepth(Node node, int depth){
+        if(node == null){
+            return depth;
+        }
+        int leftDepth = calDepth(node.left, depth+1);
+        int rightDepth = calDepth(node.right, depth+1);
+        if(leftDepth > rightDepth){
+            return leftDepth;
+        }else{
+            return rightDepth;
+        }
+    }
+
+    public Node mirrorTree(Node root) {
+        Stack<Node> stack  = new Stack<>();
+        stack.push(root);
+        while (!stack.isEmpty()){
+            Node node = stack.pop();
+            if(node.left != null){
+                stack.push(node.left);
+            }
+            if(node.right != null){
+                stack.push(node.right);
+            }
+            Node temp = node.left;
+            node.left = node.right;
+            node.right = temp;
+        }
+        return root;
+    }
+
     public static void main(String[] args) {
+        int [] nums = {9,3,20,15,7};
         BinarySearchTree<Integer> tree = new BinarySearchTree<>();
 //        int [] nums = {5,3,6,8,4,2};
 //        for (int num:nums) {
@@ -234,21 +275,21 @@ public class BinarySearchTree<E extends Comparable<E>> {
 //        tree.inOrder();
 //        System.out.println();
 //        tree.postOrder();
-        Random random = new Random();
-        for (int i = 0; i < 1000; i++) {
-            tree.addRecursion(random.nextInt(10000));
-        }
-        ArrayList<Integer> arrayList = new ArrayList<>();
-        while (!tree.isEmpty()){
-            arrayList.add(tree.removeMin());
-        }
-        System.out.println(arrayList);
-        for (int i = 1; i < arrayList.size(); i++) {
-            if (arrayList.get(i-1) > arrayList.get(i)){
-                throw new IllegalArgumentException("ERROR");
-            }
-        }
-        System.out.println("remove min success");
+//        Random random = new Random();
+//        for (int i = 0; i < 1000; i++) {
+//            tree.addRecursion(random.nextInt(10000));
+//        }
+//        ArrayList<Integer> arrayList = new ArrayList<>();
+//        while (!tree.isEmpty()){
+//            arrayList.add(tree.removeMin());
+//        }
+//        System.out.println(arrayList);
+//        for (int i = 1; i < arrayList.size(); i++) {
+//            if (arrayList.get(i-1) > arrayList.get(i)){
+//                throw new IllegalArgumentException("ERROR");
+//            }
+//        }
+//        System.out.println("remove min success");
     }
 
     public void remove(E e){
