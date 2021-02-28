@@ -1,7 +1,6 @@
 package com.lxj.algorithm.linearseach;
 
-import com.lxj.algorithm.sort.SelectionSort;
-import com.lxj.algorithm.sort.InsertionSort;
+import com.lxj.algorithm.sort.*;
 
 public class SortingHelper {
     public static <E extends Comparable<E>> boolean isSorted(E [] arr){
@@ -27,6 +26,14 @@ public class SortingHelper {
             InsertionSort.insertSort(arr);
         }else if(sortName.equals("InsertionSortImproved")){
             InsertionSort.insertSortImproved(arr);
+        }else if(sortName.equals("MergeSort")){
+            MergeSort.sort(arr);
+        }else if(sortName.equals("QuickSort")){
+            QuickSort.sort(arr);
+        }else if(sortName.equals("HeapSort")){
+            HeapSort.sort(arr);
+        }else if(sortName.equals("BubbleSort")){
+            BubbleSort.sort(arr);
         }
         long endTime = System.nanoTime();
         if (!SortingHelper.isSorted(arr)){

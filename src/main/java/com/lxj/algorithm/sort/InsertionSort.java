@@ -2,6 +2,7 @@ package com.lxj.algorithm.sort;
 
 import com.lxj.algorithm.linearseach.SortingHelper;
 import com.lxj.algorithm.linearseach.ArrayGenerator;
+import org.apache.log4j.helpers.FormattingInfo;
 
 import java.util.Arrays;
 
@@ -17,6 +18,7 @@ public class InsertionSort {
             }
         }
     }
+
 
     public static <E extends Comparable<E>> void insertSortImproved(E [] data){
         for (int i = 0; i < data.length; i++) {

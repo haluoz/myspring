@@ -52,4 +52,10 @@ public class ArrayQueue<E> implements Queue<E> {
         sb.append(']');
         return sb.toString();
     }
+
+    public static void main(String[] args) {
+        ArrayQueue<Integer> queue = new ArrayQueue<>();
+        queue.enqueue(2);
+        queue.enqueue(3);
+    }
 }
