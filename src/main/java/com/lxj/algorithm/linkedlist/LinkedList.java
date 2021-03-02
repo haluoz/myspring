@@ -125,6 +125,18 @@ public class LinkedList<E> {
         return retNode.e;
     }
 
+    public E removeElement(E e){
+        Node curNode = dummyHead.next.next;
+        Node prevNode = dummyHead.next;
+        while (curNode != null && !curNode.e.equals(e)) {
+            prevNode = curNode;
+            curNode = curNode.next;
+        }
+        E ret = curNode.e;
+        prevNode.next = curNode.next;
+        return ret;
+    }
+
     public E removeFirst(){
         return remove(0);
     }
@@ -154,9 +166,11 @@ public class LinkedList<E> {
         }
         linkedList.add(2, 666);
         System.out.println(linkedList);
-        linkedList.remove(2);
-        System.out.println(linkedList);
-        linkedList.removeFirst();
+//        linkedList.remove(2);
+//        System.out.println(linkedList);
+//        linkedList.removeFirst();
+//        System.out.println(linkedList);
+        linkedList.removeElement(666);
         System.out.println(linkedList);
     }
 }
