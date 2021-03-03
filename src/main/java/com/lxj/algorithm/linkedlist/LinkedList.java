@@ -1,5 +1,7 @@
 package com.lxj.algorithm.linkedlist;
 
+import com.lxj.algorithm.map.LinkedListMap;
+
 /**
  * @author Administrator
  */
@@ -125,7 +127,8 @@ public class LinkedList<E> {
         return retNode.e;
     }
 
-    public E removeElement(E e){
+    //my implementation
+    public E removeElementMy(E e){
         Node curNode = dummyHead.next.next;
         Node prevNode = dummyHead.next;
         while (curNode != null && !curNode.e.equals(e)) {
@@ -135,6 +138,24 @@ public class LinkedList<E> {
         E ret = curNode.e;
         prevNode.next = curNode.next;
         return ret;
+    }
+
+    //bobo implementation
+    public E removeElement(E e){
+        Node prev = dummyHead;
+        while (prev.next != null){
+            if (prev.next.e.equals(e)){
+                break;
+            }
+            prev = prev.next;
+        }
+        if (prev.next != null){
+            Node delNode = prev.next;
+            prev.next = delNode.next;
+            delNode.next = null;
+            return delNode.e;
+        }
+        return  null;
     }
 
     public E removeFirst(){

@@ -162,6 +162,12 @@ public class BinarySearchTree<E extends Comparable<E>> {
         return ret;
     }
 
+    /**
+     * 删除已node为根的二分搜索树的最小节点
+     * 返回删除节点后新的二分搜索树的根
+     * @param node
+     * @return
+     */
     private Node removeMin(Node node) {
         if (node.left == null){
             Node rightNode = node.right;
@@ -197,6 +203,11 @@ public class BinarySearchTree<E extends Comparable<E>> {
         return minimum(root).e;
     }
 
+    /**
+     * 返回二分搜索树中最小节点的值
+     * @param node
+     * @return
+     */
     private Node minimum(Node node) {
         if (node.left == null){
             return node;
@@ -211,6 +222,11 @@ public class BinarySearchTree<E extends Comparable<E>> {
         return maximum(root).e;
     }
 
+    /**
+     * 返回二分搜索树中最小节点的值
+     * @param node
+     * @return
+     */
     private Node maximum(Node node) {
         if (node.right == null){
             return node;
@@ -335,7 +351,7 @@ public class BinarySearchTree<E extends Comparable<E>> {
         return sb.toString();
     }
 
-    private void generateBST(Node node, int depth, StringBuilder sb) {
+    public void generateBST(Node node, int depth, StringBuilder sb) {
         if (node == null){
             sb.append(generateDepth(depth) + "null\n");
             return;
