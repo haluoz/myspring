@@ -179,19 +179,34 @@ public class LinkedList<E> {
         return sb.toString();
     }
 
+    public Node getIntersectionNode(Node headA, Node headB) {
+        if(headA == null || headB == null) {
+            return null;
+        }
+        Node n1 = headA;
+        Node n2 = headB;
+
+        while(n1 != n2){
+            n1 = n1 == null ? headB : n1.next;
+            n2 = n2 == null ? headA : n2.next;
+        }
+        return n1;
+    }
+
     public static void main(String[] args) {
         LinkedList<Integer> linkedList = new LinkedList<>();
-        for (int i = 0; i < 5; i++) {
-            linkedList.addFirst(i);
-            System.out.println(linkedList);
-        }
-        linkedList.add(2, 666);
-        System.out.println(linkedList);
+
+//        for (int i = 0; i < 5; i++) {
+//            linkedList.addFirst(i);
+//            System.out.println(linkedList);
+//        }
+//        linkedList.add(2, 666);
+//        System.out.println(linkedList);
 //        linkedList.remove(2);
 //        System.out.println(linkedList);
 //        linkedList.removeFirst();
 //        System.out.println(linkedList);
-        linkedList.removeElement(666);
-        System.out.println(linkedList);
+//        linkedList.removeElement(666);
+//        System.out.println(linkedList);
     }
 }
