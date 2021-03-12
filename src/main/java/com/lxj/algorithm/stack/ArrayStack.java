@@ -2,8 +2,6 @@ package com.lxj.algorithm.stack;
 
 import com.lxj.algorithm.array.Array;
 
-import javax.activation.MailcapCommandMap;
-
 /**
  * @author Administrator
  */

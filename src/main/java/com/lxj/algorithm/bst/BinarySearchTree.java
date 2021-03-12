@@ -3,9 +3,7 @@ package com.lxj.algorithm.bst;
 import com.lxj.algorithm.queue.ArrayQueue;
 import com.lxj.algorithm.stack.ArrayStack;
 
-import java.util.ArrayList;
-import java.util.Random;
-import java.util.Stack;
+import java.util.*;
 
 public class BinarySearchTree<E extends Comparable<E>> {
     private class Node{
@@ -279,6 +277,7 @@ public class BinarySearchTree<E extends Comparable<E>> {
 
     public static void main(String[] args) {
         int [] nums = {9,3,20,15,7};
+        Queue<Integer> queue = new LinkedList<Integer>();
         BinarySearchTree<Integer> tree = new BinarySearchTree<>();
 //        int [] nums = {5,3,6,8,4,2};
 //        for (int num:nums) {
