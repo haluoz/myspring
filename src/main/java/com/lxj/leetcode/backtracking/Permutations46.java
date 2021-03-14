@@ -15,7 +15,7 @@ import java.util.List;
  *   [3,2,1]]
  * @author lee
  */
-public class Permutations {
+public class Permutations46 {
 
     List<List<Integer>> list = new ArrayList<>();
     boolean [] used;
@@ -30,8 +30,9 @@ public class Permutations {
     }
 
     private void generatePermutation(int[] nums, int index, List<Integer> p ){
+        System.out.println("Depth: " + index + " "  + p.toString());
         if (index == nums.length){
-            list.add(p);
+            list.add(new ArrayList<>(p));
             return;
         }
         for (int i = 0; i < nums.length; i++) {
@@ -40,15 +41,15 @@ public class Permutations {
                 p.add(nums[i]);
                 used[i] = true;
                 generatePermutation(nums, index+1, p);
-                p.remove(nums[i]);
+                p.remove((Integer) nums[i]);
                 used[i] = false;
             }
         }
     }
 
     public static void main(String[] args) {
-        Permutations permutations = new Permutations();
+        Permutations46 permutations = new Permutations46();
         int[] nums = {1,2,3};
-        permutations.permute(nums);
+        System.out.println(permutations.permute(nums).toString());
     }
 }
