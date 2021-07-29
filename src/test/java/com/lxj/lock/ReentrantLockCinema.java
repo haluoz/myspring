@@ -34,9 +34,9 @@ public class ReentrantLockCinema {
     }
 
     public static void main(String[] args) {
-//        new Thread(() -> read(),"thread1").start();
-//        new Thread(() -> read(),"thread2").start();
-//        new Thread(() -> write(),"thread3").start();
-//        new Thread(() -> write(),"thread4").start();
+        new Thread(() -> read(),"thread1").start();
+        new Thread(() -> read(),"thread2").start();
+        new Thread(() -> write(),"thread3").start();
+        new Thread(() -> write(),"thread4").start();
     }
 }

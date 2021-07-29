@@ -14,4 +14,12 @@ public class ListNode {
     public String toString() {
         return String.valueOf(val);
     }
+
+    public void printLinkedList(ListNode node){
+        while (node != null){
+            System.out.print(node.val + "->");
+            node = node.next;
+        }
+        System.out.println("null");
+    }
 }
