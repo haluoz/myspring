@@ -1,5 +1,7 @@
 package com.lxj.algorithm.sort;
 
+import java.util.Arrays;
+
 public class BubbleSort {
     public static void main(String[] args) {
         int[] ints = {5, 7, 12, 3, 8, 33};
@@ -12,7 +14,7 @@ public class BubbleSort {
                 }
             }
         }
-        System.out.println(ints);
+        System.out.println(Arrays.toString(ints));
     }
 
     public static <E extends Comparable<E>> void sort(E [] data){
