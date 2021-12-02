@@ -3,6 +3,7 @@ package com.lxj.algorithm.linkedlist;
 import com.lxj.algorithm.map.LinkedListMap;
 
 /**
+ * 单项链表
  * @author Administrator
  */
 public class LinkedList<E> {

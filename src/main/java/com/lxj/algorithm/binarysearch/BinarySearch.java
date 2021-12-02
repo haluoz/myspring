@@ -46,7 +46,8 @@ public class BinarySearch {
     }
 
     public static void main(String[] args) {
-        Integer[] array = {-1,0,3,5,9,12};
+        Integer[] array = {-1,0,3,5,9,12,15};
         System.out.println(searchRecursion(array, 2));
+        search(array, 15);
     }
 }
