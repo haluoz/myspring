@@ -1,5 +1,8 @@
 import org.myspring.core.BeanContainer;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 
@@ -36,6 +39,18 @@ public class Test {
 //        for (Integer i : set) {
 //            System.out.println(i);
 //        }
-        System.out.println(BeanContainer.class.getResource("/"));
+//        System.out.println(BeanContainer.class.getResource("/"));
+//        String url = "/data/tas/unpackDataDocument/zippdf/part1/1581/11355";
+//        File file = new File(url);
+//        if (!file.exists()){
+//            file.mkdirs();
+//            System.out.println("mkdir");
+//        }
+        String url = "https://u-pre.boe.com/api/b1/tale/matrix-scores-notice?sign={replace}";
+        System.out.println(url.contains("?sign"));
+        if (url.contains("?sign")){
+            url = url.replace("{replace}", "aaa");
+        }
+        System.out.println(url);
     }
 }
