@@ -47,14 +47,14 @@ public class AzureGPTTest {
 //        System.out.println(azureGPTTest.solution("This is another test"));
     }
 
-    public String1 solution(String str) {
+    public String solution(String str) {
         // 在这⾥写代码
         String[] arr = str.split(" ");
         StringBuilder sb = new StringBuilder();
         for(int i = 0; i< arr.length; i++){
             String string1 = arr[i];
             if(string1.length() >=5){
-                String1 swap = swap(string1);
+                String swap = swap(string1);
                 sb.append(swap);
             }else{
                 sb.append(string1);
@@ -65,7 +65,7 @@ public class AzureGPTTest {
         return sb.toString();
     }
 
-    public String1 swap(String word){
+    public String swap(String word){
         char [] c = word.toCharArray();
         int start = 0, end = c.length-1;
         while(start < end){
@@ -74,6 +74,6 @@ public class AzureGPTTest {
             c[start] = c1;
             start++; end--;
         }
-        return new String1(c);
+        return new String(c);
     }
 }
