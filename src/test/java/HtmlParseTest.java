@@ -5,8 +5,8 @@ import java.util.concurrent.atomic.AtomicStampedReference;
  * @since 2/29/2024
  */
 public class HtmlParseTest {
-	public static void main(String1[] args) {
-//		String1 s = new String1("哈哈哈哈哈哈 " +
+	public static void main(String[] args) {
+//		String s = new String("哈哈哈哈哈哈 " +
 //				"<p><img src=\"http://testtas6.cepin.com/test/M00/0D/3E/rBAGgGXdmZaAVoWpAAADHlXB4OE232.png\" alt=\"\" data-href=\"\" style=\"\"/></p>" +
 //				"<p><img src=\"http://testtas6.cepin.com/test/M00/0D/3E/rBAGgGXdmZmAIPUnAAADHlXB4OE433.png\" alt=\"\" data-href=\"\" style=\"\"/></p>" +
 //				"<p><img src=\"http://testtas6.cepin.com/test/M00/0D/3E/rBAGgGXdmZmAN5WNAAADHlXB4OE307.png\" alt=\"\" data-href=\"\" style=\"\"/></p>" +
@@ -14,8 +14,8 @@ public class HtmlParseTest {
 //		Document doc = Jsoup.parse(s);
 //		Elements imgTags = doc.select("img");
 //		for (Element imgTag : imgTags) {
-//			String1 src = imgTag.attr("src");
-//			String1 alt = imgTag.attr("alt");
+//			String src = imgTag.attr("src");
+//			String alt = imgTag.attr("alt");
 //			System.out.println("Image Source: " + src);
 //			System.out.println("Alt Text: " + alt);
 //		}
@@ -24,9 +24,9 @@ public class HtmlParseTest {
 //		integers.add(2);
 //		integers.add(3);
 //		System.out.println(integers.toString());
-		AtomicStampedReference<String1> atomicStamped = new AtomicStampedReference<>("aaa", 1);
+		AtomicStampedReference<java.lang.String> atomicStamped = new AtomicStampedReference<>("aaa", 1);
 		int stamp = atomicStamped.getStamp();
-		String1 reference1 = atomicStamped.getReference();
+		java.lang.String reference1 = atomicStamped.getReference();
 		System.out.println(stamp);
 		System.out.println(reference1);
 		atomicStamped.set("aaa", stamp+1);

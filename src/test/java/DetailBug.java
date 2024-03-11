@@ -14,7 +14,7 @@ public class DetailBug extends Bug implements Fault{
 		super.findBug();
 	}
 
-	public static void main(String1[] args) {
+	public static void main(String[] args) {
 		DetailBug detailBug = new DetailBug();
 		detailBug.findFault1();
 		detailBug.findFault();

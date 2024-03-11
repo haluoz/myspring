@@ -1,16 +1,12 @@
-
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * @author Xingjing.Li
  * @since 12/15/2023
  */
 public class AzureGPTTest {
-    public static void main(String1[] args) {
-//        String1 azureOpenaiKey = "caa9b807d3f64eafaea05cdd865aac4b";
-//        String1 endpoint = "https://tas-7-ai.openai.azure.com";
-//        String1 deploymentOrModelId = "Tas7GPT35";
+    public static void main(String[] args) {
+//        String azureOpenaiKey = "caa9b807d3f64eafaea05cdd865aac4b";
+//        String endpoint = "https://tas-7-ai.openai.azure.com";
+//        String deploymentOrModelId = "Tas7GPT35";
 //
 //        OpenAIClient client = new OpenAIClientBuilder()
 //                .endpoint(endpoint)
@@ -43,17 +39,17 @@ public class AzureGPTTest {
 //        System.out.println(azureGPTTest.solution("This is another test"));
     }
 
-    public String solution(String str) {
+    public java.lang.String solution(java.lang.String str) {
         // 在这⾥写代码
-        String[] arr = str.split(" ");
+        java.lang.String[] arr = str.split(" ");
         StringBuilder sb = new StringBuilder();
         for(int i = 0; i< arr.length; i++){
-            String string1 = arr[i];
-            if(string1.length() >=5){
-                String swap = swap(string1);
+            java.lang.String string = arr[i];
+            if(string.length() >=5){
+                java.lang.String swap = swap(string);
                 sb.append(swap);
             }else{
-                sb.append(string1);
+                sb.append(string);
             }
             if(i != arr.length) sb.append(" ");
             System.out.println(sb.toString());
@@ -61,7 +57,7 @@ public class AzureGPTTest {
         return sb.toString();
     }
 
-    public String swap(String word){
+    public java.lang.String swap(java.lang.String word){
         char [] c = word.toCharArray();
         int start = 0, end = c.length-1;
         while(start < end){
@@ -70,6 +66,6 @@ public class AzureGPTTest {
             c[start] = c1;
             start++; end--;
         }
-        return new String(c);
+        return new java.lang.String(c);
     }
 }
