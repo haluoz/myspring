@@ -42,7 +42,16 @@ public class CyclicBarrierDemo {
 //			barrier.reset();
 //			threadPool.shutdown();
 //		}
-
+		// 权限
+		// 分为两部分 1功能权限控制 2数据权限控制
+		// 1.请求写数据库 都数据库
+		// 2.数据权限控制
+		// 2.1 使用自定义 注解使用aop
+		// 2.2 切入点 pointcut 通知 before advice
+		// 3. 登录的时候 查询出当前角色的部门的人 写入redis
+		// 4.
+		// 分数同步bi 分表
+		// jxelExpression
 	}
 
 	public void readFile2() throws BrokenBarrierException, InterruptedException {
