@@ -1,4 +1,4 @@
-package com.lxj.lock;
+package com.lxj.juc.lock;
 
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 

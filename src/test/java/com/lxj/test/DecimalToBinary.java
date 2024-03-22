@@ -75,10 +75,10 @@ public class DecimalToBinary {
 //        String s2 = new String("aaa");
 //        System.out.println(s1.equals(s2));
 
-        String str1 = "通话";
-        String str2 = "重地";
-        System.out.println(String.format("str1：%d | str2：%d",  str1.hashCode(),str2.hashCode()));
-        System.out.println(str1.equals(str2));
+//        String str1 = "通话";
+//        String str2 = "重地";
+//        System.out.println(String.format("str1：%d | str2：%d",  str1.hashCode(),str2.hashCode()));
+//        System.out.println(str1.equals(str2));
 
     }
 

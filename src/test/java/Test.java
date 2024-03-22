@@ -46,11 +46,17 @@ public class Test {
 //            file.mkdirs();
 //            System.out.println("mkdir");
 //        }
-        String url = "https://u-pre.boe.com/api/b1/tale/matrix-scores-notice?sign={replace}";
-        System.out.println(url.contains("?sign"));
-        if (url.contains("?sign")){
-            url = url.replace("{replace}", "aaa");
-        }
-        System.out.println(url);
+//        String url = "https://u-pre.boe.com/api/b1/tale/matrix-scores-notice?sign={replace}";
+//        System.out.println(url.contains("?sign"));
+//        if (url.contains("?sign")){
+//            url = url.replace("{replace}", "aaa");
+//        }
+//        System.out.println(url);
+        String fileUrl = "http://devtas6.cepin.net/test/M00/00/E7/rBAB92XutOWAUMB8AADrX1Qn3k4516.jpg";
+        String host = "devtas6.cepin.net";
+        String fullPath = fileUrl.substring(fileUrl.indexOf(host) + 1 + host.length(), fileUrl.length());
+        String group = fullPath.split("/")[0];
+        String path = fullPath.substring(fullPath.indexOf(group) + 1 + group.length(), fullPath.length());
+
     }
 }

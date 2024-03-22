@@ -16,6 +16,7 @@ public class CreateThread {
 						TimeUnit.MILLISECONDS,
 						new LinkedBlockingQueue<>(1),
 						new ThreadPoolExecutor.CallerRunsPolicy());
+
 		// Submit 10 tasks to the executor
 		for (int i = 1; i <= 10; i++) {
 			final int taskId = i;
