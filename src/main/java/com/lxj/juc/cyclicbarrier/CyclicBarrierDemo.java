@@ -49,8 +49,12 @@ public class CyclicBarrierDemo {
 		// 2.1 使用自定义 注解使用aop
 		// 2.2 切入点 pointcut 通知 before advice
 		// 3. 登录的时候 查询出当前角色的部门的人 写入redis
-		// 4.
+		// 4. 缓存的数据后不是动态变化
+		// 5. 通过发送mq消息去刷新redis里的权限值
 		// 分数同步bi 分表
+		// 1.宽表 wide table
+		// 2.全局唯一id 用美团的leaf
+		// 3.sharding sharding key companyId
 		// jxelExpression
 	}
 
